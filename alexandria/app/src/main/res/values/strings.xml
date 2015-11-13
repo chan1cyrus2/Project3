@@ -17,6 +17,7 @@
     <string name="ok_button">Next</string>
     <string name="cancel_button">Cancel</string>
     <string name="not_found">No Book found</string>
+    <string name="not_connect">"Unable to connect the server, please check internet connection"</string>
     <string name="search">Search</string>
     <string name="delete">Delete Book</string>
     <string name="pref_startScreen">Select Startscreen</string>
@@ -24,8 +25,10 @@
     <string name="action_share">Share</string>
     <string name="back_button">go back</string>
     <string name="share_text">A must read book: </string>
+    <string name="low_storage_error">Detector dependencies cannot be downloaded due to ..."</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="about_text">This application gets book information from a Google API. All titles, cover images, and author information come from there.
     The original version of this app was built by Sascha Jaschke, and a modified version is given to students in the Udacity Android Nanodegree program. </string>
+    <string name="title_activity_barcode_capture">Barcode Scanner</string>
 </resources>

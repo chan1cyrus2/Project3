@@ -125,11 +125,18 @@ public class BookService extends IntentService {
             }
 
             if (buffer.length() == 0) {
+                Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
+                messageIntent.putExtra(MainActivity.MESSAGE_KEY,getResources().getString(R.string.not_connect));
+                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
                 return;
             }
             bookJsonString = buffer.toString();
         } catch (Exception e) {
+            Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
+            messageIntent.putExtra(MainActivity.MESSAGE_KEY,getResources().getString(R.string.not_connect));
+            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
             Log.e(LOG_TAG, "Error ", e);
+            return;
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
