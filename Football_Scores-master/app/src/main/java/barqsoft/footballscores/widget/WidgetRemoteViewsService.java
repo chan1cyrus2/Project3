@@ -109,6 +109,20 @@ public class WidgetRemoteViewsService extends RemoteViewsService{
                 views.setTextViewText(R.id.date_textview, time);
                 views.setTextViewText(R.id.score_textview, Utilies.getScores(homeGoal, awayGoal));
 
+                //Set content description
+                String resultCD;
+                if(homeGoal != -1 || awayGoal != -1){
+                    resultCD = ". Result is" + Integer.toString(homeGoal) + " to " +
+                    Integer.toString(awayGoal);
+                }else{
+                    resultCD = "";
+                }
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1){
+                    views.setContentDescription(R.id.widget_list_item,
+                            home + " vesus " + away + " at time " + time + ". " + resultCD
+                    );
+                }
+
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                     final Intent fillInIntent = new Intent();
                     fillInIntent.putExtra(EXTRA_ID, matchID);
