@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import barqsoft.footballscores.widget.WidgetRemoteViewsService;
+
 public class MainActivity extends ActionBarActivity
 {
     public static int selected_match_id;
@@ -20,11 +22,17 @@ public class MainActivity extends ActionBarActivity
         setContentView(R.layout.activity_main);
         Log.d(LOG_TAG, "Reached MainActivity onCreate");
         if (savedInstanceState == null) {
+            //get intent from widget and set the selected match id
+            Intent intent = getIntent();
+            if(intent != null && intent.hasExtra(WidgetRemoteViewsService.EXTRA_ID)){
+                selected_match_id = intent.getIntExtra(WidgetRemoteViewsService.EXTRA_ID, -1);
+            }
             my_main = new PagerFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, my_main)
                     .commit();
         }
+
     }
 
 
