@@ -37,4 +37,7 @@
     <string name="widget_title">Latest Football Scores</string>
     <string name="empty_forecast_list">No Latest Football Scores Available today</string>
     <string name="title_widget">Football Scores</string>
+    <!--
+    <string name="api_key"></string>
+    -->
 </resources>
